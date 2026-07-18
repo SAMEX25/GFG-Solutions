@@ -1,0 +1,16 @@
+class Solution {
+    public int firstRepeated(int[] arr) {
+        // code here
+        HashMap<Integer, Integer> counts = new HashMap<>();
+        
+        for(int num : arr){
+            counts.put(num, counts.getOrDefault( num, 0)+1);
+        }
+        for(int i=0; i<arr.length; i++){
+            if(counts.get(arr[i]) >1){
+                return i+1;
+            }
+        }
+        return -1;
+    }
+}
