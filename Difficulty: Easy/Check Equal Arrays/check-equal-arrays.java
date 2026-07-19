@@ -1,0 +1,21 @@
+class Solution {
+    public static boolean checkEqual(int[] a, int[] b) {
+        // code here
+        if(a.length != b.length){
+            return false;
+        }
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int num:a){
+            map.put(num, map.getOrDefault(num, 0) +1);
+            
+        }
+        for(int num:b){
+            if(!map.containsKey(num) || map.get(num) ==0){
+                return false;
+            }
+            map.put(num, map.get(num) - 1);
+        }
+        return true;
+    }
+}
