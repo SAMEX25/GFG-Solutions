@@ -1,23 +1,16 @@
 class Solution {
     boolean twoSum(int arr[], int target) {
         // code here
-        Arrays.sort(arr);
-        int left = 0;
-        int right = arr.length-1;
+        HashSet<Integer> set = new HashSet<>();
         
-        
-        while(left<right){
-         int sum = arr[left] + arr[right];
-         
-         if(sum == target){
-             return true;
-         }else if(sum < target){
-             left++;
-         }else{
-             right--;
-         }
+        for(int num: arr){
+            int sum = target - num;
+            if(set.contains(sum)){
+                return true;
             
         }
-        return false;
+        set.add(num);
     }
+    return false;
+}
 }
