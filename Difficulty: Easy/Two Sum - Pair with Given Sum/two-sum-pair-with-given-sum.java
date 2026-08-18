@@ -1,16 +1,17 @@
 class Solution {
-    boolean twoSum(int arr[], int target) {
-        // code here
+    boolean twoSum(int[] arr, int target) {
         HashSet<Integer> set = new HashSet<>();
-        
-        for(int num: arr){
-            int sum = target - num;
-            if(set.contains(sum)){
+
+        for (int num : arr) {
+            int complement = target - num;
+
+            if (set.contains(complement)) {
                 return true;
-            
+            }
+
+            set.add(num);
         }
-        set.add(num);
+
+        return false;
     }
-    return false;
-}
 }
